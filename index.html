@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Category :<select id="categoryList"></select><br><br>
+    Items : <select id="itemsList"></select>
+    
+    <script>let menu = {
+            drinks: [
+                "Water", "Tea", "Sweet Tea",
+                "Coke", "Dr. Pepper", "Sprite"
+            ],
+            entrees: [
+                "Hamburger w/ Fries",
+                "Grilled Cheese w/ Tater Tots",
+                "Grilled Chicken w/ Veggies",
+                "Chicken Fried Steak w/ Mashed Potatoes",
+                "Fried Shrimp w/ Coleslaw",
+                "Veggie Plate"
+            ],
+            desserts: [
+                "Cheesecake", "Chocolate Cake", "Snickerdoodle Cookie"
+            ]
+        };
+
+        window.onload = function () {
+            var categoryList = document.getElementById("categoryList");
+            var itemsList = document.getElementById("itemsList");
+          
+            for (var x in menu) {
+                categoryList.options[categoryList.options.length] = new Option(x, x);
+            }
+            categoryList.onchange = function () {
+                itemsList.length = 1;
+                 var z = menu[categoryList.value];
+               
+                for (var i=0;i<z.length;i++) {
+                    itemsList.options[itemsList.options.length] = new Option(z[i], z[i]);
+                }
+            }
+          
+            }
+        
+
+    </script>
+</body>
+
+</html>
